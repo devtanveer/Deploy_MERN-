@@ -11,13 +11,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const corsOptions = {
-  origin: '*', // Allow requests from this origin
-  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-  ptionSuccessStatus: 200,
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
+  origin: '*', //  actual frontend URL
+  credentials: true,
+  optionSuccessStatus: 200,
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
-
-
 
 app.use(cors(corsOptions));
 app.use('/', router);
@@ -30,7 +28,6 @@ mongoose
     console.error('Error connecting to MongoDB:', err);
     process.exit(1); // Stop the server on database connection error
   });
-
 
 
 const port = process.env.PORT || 4000;
