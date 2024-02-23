@@ -1,4 +1,4 @@
-caonst express = require('express');
+const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const router = require('./routes/router');
@@ -11,11 +11,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const corsOptions = {
-  origin: '*', //  actual frontend URL
-  credentials: true,
-  optionSuccessStatus: 200,
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: 'https://deploy-mernfrontend.vercel.app', // Allow requests from this origin
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  ptionSuccessStatus: 200,
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
 };
+
+
 
 app.use(cors(corsOptions));
 app.use('/', router);
