@@ -14,7 +14,7 @@ const corsOptions = {
   origin: 'https://deploy-mernfrontend.vercel.app', //  actual frontend URL
   credentials: true,
   optionSuccessStatus: 200,
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
