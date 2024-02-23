@@ -26,7 +26,7 @@ const BinsRegions = () => {
 
   const fetchRegions = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/bins');
+      const response = await axios.get('https://deploy-mernapi.vercel.app/bins');
       setRegions(response.data);
     } catch (error) {
       console.error('Error fetching regions:', error);
@@ -62,7 +62,7 @@ const BinsRegions = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:4000/add-bin-region', newRegion);
+      const response = await axios.post('https://deploy-mernapi.vercel.app/add-bin-region', newRegion);
       setRegions([...regions, response.data]); // Assuming response.data contains the newly added region
       setNewRegion({
         regionCode: '',
@@ -113,7 +113,7 @@ const BinsRegions = () => {
 
   const handleDeleteRegion = async (regionCode) => {
     try {
-      await axios.delete(`http://localhost:4000/delete-bin-region/${regionCode}`);
+      await axios.delete(`https://deploy-mernapi.vercel.app/delete-bin-region/${regionCode}`);
       setRegions((prevRegions) =>
         prevRegions.filter((region) => region.regionCode !== regionCode)
       );
