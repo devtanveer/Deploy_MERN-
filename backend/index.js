@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const corsOptions = {
-  origin: '*', //  actual frontend URL
+  origin: 'https://frontend-green-mu.vercel.app', //  actual frontend URL
   credentials: true,
   optionSuccessStatus: 200,
   allowedHeaders: ['Content-Type', 'Authorization'],
