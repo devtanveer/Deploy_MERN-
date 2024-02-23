@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const corsOptions = {
-  origin: 'https://deploy-mernfrontend.vercel.app', // Allow requests from this origin
+  origin: '*', // Allow requests from this origin
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   ptionSuccessStatus: 200,
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
