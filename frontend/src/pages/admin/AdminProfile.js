@@ -22,7 +22,7 @@ const AdminProfile = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/users');
+        const response = await axios.get('https://deploy-mernapi.vercel.app/users');
         setUsers(response.data);
 
         console.log('Fetched User Data:', response.data.map(user => {
