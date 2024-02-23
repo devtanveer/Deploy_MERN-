@@ -20,8 +20,14 @@ const storage = multer.diskStorage({
   });
 
 
+
 // Set up multer instance
 const upload = multer({ storage: storage });
+
+router.get('/', async (req, res) =>
+  {
+    res.json("I Am Working");
+  });
 
 
 router.post('/contact/:a', async (req, res) => {
