@@ -14,6 +14,7 @@ const corsOptions = {
   origin: '*', //  actual frontend URL
   credentials: true,
   optionSuccessStatus: 200,
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 app.use(cors(corsOptions));
