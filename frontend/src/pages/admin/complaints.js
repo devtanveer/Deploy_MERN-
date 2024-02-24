@@ -68,7 +68,7 @@ const AdminComplaint = () => {
                 const response = await axios.get('https://deploy-mernapi.vercel.app/complaints');
                 setComplaints(response.data);
             } catch (error) {
-                console.error('Error fetching complaints:', error);
+                console.error('Error fetching complaints, some error:', error);
             }
         };
         fetchComplaints();
