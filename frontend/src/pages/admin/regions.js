@@ -88,7 +88,7 @@ const BinsRegions = () => {
 
   const handleRegionStatusChange = async (regionCode) => {
     try {
-      await axios.patch(`http://localhost:4000/bins/${regionCode}`, { regionStatus: regions.find(region => region.regionCode === regionCode).regionStatus === 'Active' ? 'Inactive' : 'Active' });
+      await axios.patch(`https://deploy-mernapi.vercel.app/bins/${regionCode}`, { regionStatus: regions.find(region => region.regionCode === regionCode).regionStatus === 'Active' ? 'Inactive' : 'Active' });
       setRegions((prevRegions) =>
         prevRegions.map((region) =>
           region.regionCode === regionCode
