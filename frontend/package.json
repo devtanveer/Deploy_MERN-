@@ -37,9 +37,10 @@
   "options": {
     "allowedHosts": [
       "localhost",
+      "https://deploy-mernapi.vercel.app"
       ".localhost"
     ],
-    "proxy": "http://localhost:4000"
+    "proxy": "https://deploy-mernapi.vercel.app"
   },
   "eslintConfig": {
     "extends": [
