@@ -356,17 +356,20 @@ router.get('/complaints', async (req, res) => {
     try {
         // Fetch all complaints from the database
         const Complaint = schemas.Complaint;
-
-        // Introduce a delay of 1 second to simulate fetching
-        await new Promise(resolve => setTimeout(resolve, 2000));
-
         const complaints = await Complaint.find();
 
-        // Convert binPhoto to base64
-        complaints.forEach(complaint => {
-            const base64Image = fs.readFileSync(complaint.binPhoto, { encoding: 'base64' });
-            complaint.binPhoto = `data:image/jpeg;base64,${base64Image}`;
-        });
+        // Convert binPhoto to base64 for each complaint
+        for (const complaint of complaints) {
+            try {
+                const base64Image = fs.readFileSync(complaint.binPhoto, { encoding: 'base64' });
+                complaint.binPhoto = `data:image/jpeg;base64,${base64Image}`;
+            } catch (error) {
+                console.error('Error reading binPhoto:', error);
+                // Handle the error, log it, or skip the complaint
+                // For example, you can set a placeholder image
+                complaint.binPhoto = ''; // or set a default image
+            }
+        }
 
         res.json(complaints);
     } catch (error) {
@@ -374,6 +377,7 @@ router.get('/complaints', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch complaints' });
     }
 });
+
 
 
 // Route to fetch complaints with assigned drivers
