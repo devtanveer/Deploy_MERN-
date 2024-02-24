@@ -357,6 +357,9 @@ router.get('/complaints', async (req, res) => {
         // Fetch all complaints from the database
         const Complaint = schemas.Complaint;
 
+        // Introduce a delay of 1 second to simulate fetching
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
         const complaints = await Complaint.find();
 
         // Convert binPhoto to base64
