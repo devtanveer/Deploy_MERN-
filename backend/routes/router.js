@@ -388,11 +388,22 @@ router.get('/complaints/assigned', async (req, res) => {
 
         const complaints = await Complaint.find({ assignedDriver: { $ne: null } });
 
-        // Convert binPhoto to base64
-        complaints.forEach(complaint => {
-            const base64Image = fs.readFileSync(complaint.binPhoto, { encoding: 'base64' });
-            complaint.binPhoto = `data:image/jpeg;base64,${base64Image}`;
-        });
+     
+        // Convert binPhoto to base64 for each complaint
+        for (const complaint of complaints) {
+            try {
+                const base64Image = fs.readFileSync(complaint.binPhoto, { encoding: 'base64' });
+                complaint.binPhoto = `data:image/jpeg;base64,${base64Image}`;
+            } catch (error) {
+                console.error('Error reading binPhoto:', error);
+                // Handle the error, log it, or skip the complaint
+                // For example, you can set a placeholder image
+                complaint.binPhoto = 'https://c8.alamy.com/comp/ADBYMM/litter-rubbish-in-a-rubbish-bin-waste-food-paper-plates-cups-cans-ADBYMM.jpg'; // or set a default image
+            }
+        }
+
+
+        
 
         res.json(complaints);
     } catch (error) {
