@@ -37,7 +37,7 @@
   "options": {
     "allowedHosts": [
       "localhost",
-      "https://deploy-mernapi.vercel.app"
+      "https://deploy-mernapi.vercel.app",
       ".localhost"
     ],
     "proxy": "https://deploy-mernapi.vercel.app"
