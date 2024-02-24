@@ -69,7 +69,7 @@ const AdminProfile = () => {
     console.log('Updated User Data:', JSON.stringify(updatedUserData, null, 2));
 
     try {
-      await axios.post('http://localhost:4000/update-user', updatedUserData);
+      await axios.post('https://deploy-mernapi.vercel.app/update-user', updatedUserData);
       console.log('User updated successfully!');
       setEditingUserId(null);
       window.location.reload();
@@ -80,7 +80,7 @@ const AdminProfile = () => {
 
   const handleDeleteClick = async (userId) => {
     try {
-      await axios.delete(`http://localhost:4000/delete-user/${userId}`);
+      await axios.delete(`https://deploy-mernapi.vercel.app/delete-user/${userId}`);
       console.log('User deleted successfully!');
       window.location.reload();
     } catch (error) {
