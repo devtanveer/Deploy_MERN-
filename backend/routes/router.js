@@ -367,7 +367,7 @@ router.get('/complaints', async (req, res) => {
                 console.error('Error reading binPhoto:', error);
                 // Handle the error, log it, or skip the complaint
                 // For example, you can set a placeholder image
-                complaint.binPhoto = ''; // or set a default image
+                complaint.binPhoto = 'https://c8.alamy.com/comp/ADBYMM/litter-rubbish-in-a-rubbish-bin-waste-food-paper-plates-cups-cans-ADBYMM.jpg'; // or set a default image
             }
         }
 
