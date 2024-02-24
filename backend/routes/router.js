@@ -469,7 +469,8 @@ router.post('/addComplaint', upload.single('binPhoto'), async (req, res) => {
 
         // Extract data from request body
         const { location, userName, userPhone, binAddress } = req.body;
-        const binPhoto = req.file.path; // Get the file path of the uploaded bin photo
+        //const binPhoto = req.file.path; // Get the file path of the uploaded bin photo
+        const binPhoto = 'https://c8.alamy.com/comp/ADBYMM/litter-rubbish-in-a-rubbish-bin-waste-food-paper-plates-cups-cans-ADBYMM.jpg'
 
         // Check if required fields are provided
         if (!location || !userName || !userPhone || !binAddress) {
